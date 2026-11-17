@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <AssemblyName>micmute</AssemblyName>
+    <RootNamespace>MicMute</RootNamespace>
+    <Product>micmute</Product>
+    <Description>Mute global del micrófono con atajos, beeps e indicador en pantalla</Description>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(AutoStart)' == 'true'">
+    <AssemblyName>micmute-autostart</AssemblyName>
+    <DefineConstants>$(DefineConstants);AUTOSTART</DefineConstants>
+    <IntermediateOutputPath>obj\autostart\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+
+  <Target Name="PublishAutoStart" AfterTargets="Publish" Condition="'$(AutoStart)' != 'true'">
+    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Publish" Properties="AutoStart=true" />
+  </Target>
+
+</Project>
