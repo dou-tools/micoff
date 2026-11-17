@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace MicMute;
+namespace MicOff;
 
 sealed class TrayApp : ApplicationContext
 {
@@ -40,7 +40,7 @@ sealed class TrayApp : ApplicationContext
         if (current == null)
         {
             UpdateState(null, flash: false);
-            tray.ShowBalloonTip(2000, "micmute", "No se encontró el micrófono.", ToolTipIcon.Warning);
+            tray.ShowBalloonTip(2000, "micoff", "No se encontró el micrófono.", ToolTipIcon.Warning);
             return;
         }
 
@@ -89,7 +89,7 @@ sealed class TrayApp : ApplicationContext
         var parsed = config.Hotkeys.Select(text => Hotkey.TryParse(text, out var h) ? h : (Hotkey?)null).OfType<Hotkey>();
         failedHotkeys = hotkeys.Apply(parsed);
         if (failedHotkeys.Count > 0)
-            tray.ShowBalloonTip(3000, "micmute", $"No se pudo registrar: {string.Join(", ", failedHotkeys)} (lo usa otra app).", ToolTipIcon.Warning);
+            tray.ShowBalloonTip(3000, "micoff", $"No se pudo registrar: {string.Join(", ", failedHotkeys)} (lo usa otra app).", ToolTipIcon.Warning);
     }
 
     void BuildMenu()

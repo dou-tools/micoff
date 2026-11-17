@@ -1,6 +1,6 @@
 using System.Drawing.Drawing2D;
 
-namespace MicMute;
+namespace MicOff;
 
 sealed class Overlay : Form
 {

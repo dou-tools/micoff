@@ -1,6 +1,6 @@
 using System.Media;
 
-namespace MicMute;
+namespace MicOff;
 
 sealed class Beeps : IDisposable
 {

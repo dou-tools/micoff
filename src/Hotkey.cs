@@ -1,4 +1,4 @@
-namespace MicMute;
+namespace MicOff;
 
 // mismos valores que MOD_* de RegisterHotKey
 [Flags]

@@ -7,9 +7,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
-    <AssemblyName>micmute</AssemblyName>
-    <RootNamespace>MicMute</RootNamespace>
-    <Product>micmute</Product>
+    <AssemblyName>micoff</AssemblyName>
+    <RootNamespace>MicOff</RootNamespace>
+    <Product>micoff</Product>
     <Description>Mute global del micrófono con atajos, beeps e indicador en pantalla</Description>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>false</SelfContained>
@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(AutoStart)' == 'true'">
-    <AssemblyName>micmute-autostart</AssemblyName>
+    <AssemblyName>micoff-autostart</AssemblyName>
     <DefineConstants>$(DefineConstants);AUTOSTART</DefineConstants>
     <IntermediateOutputPath>obj\autostart\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>

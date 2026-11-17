@@ -2,7 +2,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using Microsoft.Win32;
 
-namespace MicMute;
+namespace MicOff;
 
 sealed class Config
 {
@@ -11,7 +11,7 @@ sealed class Config
     public double BeepVolume { get; set; } = 0.35;
     public bool Overlay { get; set; } = true;
 
-    public static string Folder { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "micmute");
+    public static string Folder { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "micoff");
     static string FilePath => Path.Combine(Folder, "config.json");
     static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
 
@@ -35,7 +35,7 @@ sealed class Config
     }
 
     const string RunKey = @"Software\Microsoft\Windows\CurrentVersion\Run";
-    const string RunValue = "micmute";
+    const string RunValue = "micoff";
 
     public static bool StartWithWindows
     {

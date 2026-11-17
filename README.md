@@ -1,4 +1,4 @@
-# micmute
+# micoff
 
 Mute global del micrófono para Windows. Un atajo de teclado o un botón lateral del mouse mutea la entrada del micrófono en Windows, para todas las apps a la vez, con un beep corto para cada acción y un indicador en pantalla.
 
@@ -13,8 +13,8 @@ dotnet publish src -c Release -o publish
 
 Quedan dos ejecutables en `publish/`:
 
-- `micmute.exe` abre la app: aparece un ícono de micrófono en la bandeja del sistema.
-- `micmute-autostart.exe` hace lo mismo y además la deja en los programas de inicio de Windows, igual que activar "Iniciar con Windows" desde el menú. Conviene abrirlo ya desde su carpeta definitiva.
+- `micoff.exe` abre la app: aparece un ícono de micrófono en la bandeja del sistema.
+- `micoff-autostart.exe` hace lo mismo y además la deja en los programas de inicio de Windows, igual que activar "Iniciar con Windows" desde el menú. Conviene abrirlo ya desde su carpeta definitiva.
 
 Solo corre una instancia a la vez.
 
@@ -39,7 +39,7 @@ Mientras el micrófono está muteado, abajo a la derecha se ve un indicador "MIC
 
 ### config.json
 
-La configuración vive en `%APPDATA%\micmute\config.json`:
+La configuración vive en `%APPDATA%\micoff\config.json`:
 
 ```json
 {
@@ -65,7 +65,7 @@ Después de editar el archivo a mano, hay que usar "Recargar configuración" des
 
 Esta es la forma soft de encarar el mute: no interactúa con el micrófono para apagarlo, sino que mutea su entrada en Windows.
 
-- **El mute del dispositivo es independiente.** Si el micrófono tiene su propio botón de mute, ese estado no se sincroniza con el de micmute.
+- **El mute del dispositivo es independiente.** Si el micrófono tiene su propio botón de mute, ese estado no se sincroniza con el de micoff.
 - **Un micrófono a la vez.** Se mutea el que indica `DeviceName` o, si no, el de comunicaciones por defecto.
 - **Atajos ocupados.** Un atajo que ya registró otra app no se puede usar.
 - El indicador puede no verse sobre juegos en pantalla completa exclusiva.
@@ -75,7 +75,7 @@ Esta es la forma soft de encarar el mute: no interactúa con el micrófono para 
 ```
 src/
 ├── Program.cs                   # Punto de entrada, una sola instancia y variante autostart
-├── micmute.csproj               # Proyecto WinForms .NET 10 y opciones de publicación
+├── micoff.csproj                # Proyecto WinForms .NET 10 y opciones de publicación
 ├── TrayApp.cs                   # Ícono de bandeja, menú y flujo de mute
 ├── AudioEndpoint.cs             # Busca el micrófono y lee o cambia su mute (Core Audio vía COM)
 ├── HotkeyManager.cs             # Atajos globales de teclado y hook de botones laterales

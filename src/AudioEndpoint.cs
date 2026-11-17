@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace MicMute;
+namespace MicOff;
 
 sealed class AudioEndpoint : IDisposable
 {

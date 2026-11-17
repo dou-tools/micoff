@@ -1,4 +1,4 @@
-namespace MicMute;
+namespace MicOff;
 
 static class Program
 {
@@ -9,7 +9,7 @@ static class Program
         // la variante autostart ademas queda registrada para iniciar con windows
         Config.StartWithWindows = true;
 #endif
-        using var mutex = new Mutex(true, @"Local\micmute", out var isFirst);
+        using var mutex = new Mutex(true, @"Local\micoff", out var isFirst);
         if (!isFirst) return;
 
         ApplicationConfiguration.Initialize();

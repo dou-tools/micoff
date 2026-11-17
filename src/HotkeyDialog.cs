@@ -1,4 +1,4 @@
-namespace MicMute;
+namespace MicOff;
 
 sealed class HotkeyDialog : Form
 {
